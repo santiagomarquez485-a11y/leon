@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enciclopedia del Clima: El Niño y Súper Niño</title>
+    <style>
+        :root {
+            --primary-color: #0f172a;
+            --secondary-color: #2563eb;
+            --accent-color: #ea580c;
+            --bg-light: #f8fafc;
+            --text-color: #334155;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-color);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+        }
+
+        nav .logo {
+            color: var(--white);
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 15px;
+        }
+
+        nav ul li a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 12px;
+            border-radius: 4px;
+        }
+
+        nav ul li a:hover {
+            color: var(--white);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .hero {
+            background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+            min-height: 75vh;
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 100px 20px 40px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            color: #e2e8f0;
+            margin-bottom: 30px;
+        }
+
+        .main-wrapper {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 40px;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        section {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            border: 1px solid #e2e8f0;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .highlight-box {
+            background-color: #fff7ed;
+            border-left: 5px solid var(--accent-color);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .img-card {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .img-card img {
+            width: 100%;
+            max-height: 450px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+
+        .img-card .caption {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .widget {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+
+        .widget h3 {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-top: 0;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 10px;
+        }
+
+        .widget ul {
+            list-style: none;
+        }
+
+        .widget ul li {
+            padding: 10px 0;
+            border-bottom: 1px solid #f1f5f9;
+            font-size: 0.95rem;
+        }
+
+        .widget ul li:last-child {
+            border-bottom: none;
+        }
+
+        .widget ul li a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .widget ul li a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 50px 20px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #334155;
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+
+        @media (max-width: 992px) {
+            .main-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            section {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">🌐 Enciclopedia del Clima: El Niño y Súper Niño</a>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="educacion-ambiental.html">Educación Ambiental</a></li>
+                <li><a href="lengua-castellana.html">Lengua Castellana</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1>Comprensión Integral de El Niño y el Súper Niño</h1>
+        <p>Un análisis profundo sobre los ciclos oceánico-atmosféricos que modifican de manera drástica el clima terrestre y la economía global.</p>
+    </div>
+
+    <div class="main-wrapper">
+        <main class="content">
+            <section id="inicio">
+                <h2>Portal Educativo de Ciencias del Clima</h2>
+                <p>Bienvenido al portal interactivo. En esta plataforma se integran conceptos clave sobre la dinámica atmosférica del Océano Pacífico, el impacto ecológico y el estudio analítico de textos expositivos e informativos.</p>
+
+                <div class="highlight-box">
+                    <strong>Aviso de Navegación:</strong> Utilice el menú superior para acceder a los módulos de aprendizaje.
+                </div>
+
+                <div class="img-card">
+                    <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=1200&q=80" alt="Superficie Marina Pacífico">
+                    <div class="caption">Superficie oceánica durante variaciones térmicas globales.</div>
+                </div>
+            </section>
+        </main>
+
+        <aside>
+            <div class="widget">
+                <h3>📌 Estado de Secciones</h3>
+                <ul>
+                    <li><strong>Educación Ambiental:</strong> 🚧 En Mantenimiento</li>
+                    <li><strong>Lengua Castellana:</strong> 🚧 En Mantenimiento</li>
+                </ul>
+            </div>
+
+            <div class="widget">
+                <h3>🔍 Recursos Recomendados</h3>
+                <ul>
+                    <li><a href="https://www.noaa.gov" target="_blank" rel="noopener">Oficina Meteorológica (NOAA)</a></li>
+                    <li><a href="https://public.wmo.int/es" target="_blank" rel="noopener">Organización Meteorológica Mundial (OMM)</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3>Enciclopedia del Clima</h3>
+                <p style="font-size: 0.9rem; color: #94a3b8; margin-top: 10px;">
+                    Portal educativo enfocado en proyectos integrados de Educación Ambiental y Lengua Castellana.
+                </p>
+            </div>
+            <div>
+                <h3>Navegación</h3>
+                <ul style="list-style: none; font-size: 0.9rem;">
+                    <li><a href="educacion-ambiental.html" style="color: #cbd5e1; text-decoration: none;">Educación Ambiental</a></li>
+                    <li><a href="lengua-castellana.html" style="color: #cbd5e1; text-decoration: none;">Lengua Castellana</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Contacto Educativo</h3>
+                <p style="font-size: 0.9rem; color: #94a3b8;">
+                    Material de consulta libre para escuelas, institutos y universidades.
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; Documentación Educativa e Integrada. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
